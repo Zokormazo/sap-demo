@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: get parameter info
+      delegate_to: localhost
+      sap.sap_operations.parameter_info:
+        password: "{{ sap_s4hana_deployment_master_password }}"
+        hostname: "{{ sap_hostname }}"
+        username: "{{ admin_username }}"
+        secure: insecure
+        instance_number: "0"
